@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  ContentView.swift
 //  PokeDex
 //
 //  Created by Berkan Gezgin on 25.04.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct ContentView: View {
     @ObservedObject var viewModel = PokemonViewModel()
     
     var body: some View {
@@ -20,14 +20,14 @@ struct MainView: View {
                     }
                 }
             }
-            .navigationTitle("P@kedex")
+            .navigationTitle("PokeDex")
         }
         .onAppear(perform: viewModel.fetchData)
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        ContentView()
     }
 }

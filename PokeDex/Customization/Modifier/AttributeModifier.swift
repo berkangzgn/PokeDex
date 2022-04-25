@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct AttributeModifier: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct AttributeModifier_Previews: PreviewProvider {
-    static var previews: some View {
-        AttributeModifier()
+struct Attribute: ViewModifier {
+    var color: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(5)
+            .background(color)
+            .clipShape(Capsule())
     }
 }
