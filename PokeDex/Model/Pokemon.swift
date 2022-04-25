@@ -63,5 +63,8 @@ struct Types: Decodable {
 
 struct Sprites: Decodable {
     var frontDefault = ""
+    var frontShiny = ""
     var backDefault = ""
+    var backShiny = ""
+    
 }

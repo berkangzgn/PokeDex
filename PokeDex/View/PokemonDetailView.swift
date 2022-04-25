@@ -19,24 +19,28 @@ struct PokemonDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Text("#\(self.id, specifier: "%0.3d")")
+                Text(self.viewModel.pokemon.name)
                     .font(.title)
-                HStack(spacing: 30) {
-                    ForEach(viewModel.pokemon.types, id: \.type.name) {
-                        Text($0.type.name)
-                            .attributeStyle(color: Color.green)
-                    }
-                }
+                    .textCase(.uppercase)
+                Text("ID: \(self.id, specifier: "%3d")")
+            
+                // MARK: Sprites
                 HStack {
                     VStack {
                         ImageView(withURL: viewModel.pokemon.sprites.frontDefault)
-                        Text("Front View")
+                    }
+                    VStack {
+                        ImageView(withURL: viewModel.pokemon.sprites.frontShiny)
                     }
                     VStack {
                         ImageView(withURL: viewModel.pokemon.sprites.backDefault)
-                        Text("Back View")
+                    }
+                    VStack {
+                        ImageView(withURL: viewModel.pokemon.sprites.backShiny)
                     }
                 }
+                
+                // MARK: Stats
                 HStack(spacing: 30) {
                     VStack {
                         Text("Height")
@@ -49,7 +53,9 @@ struct PokemonDetailView: View {
                         Text("\(viewModel.pokemon.weight) kg")
                     }
                 }
-                Section(header: Text("Stats").font(.headline)) {
+                Section(header: Text("Stats")
+                    .font(.title2)
+                    .fontWeight(.bold)) {
                     ForEach(viewModel.pokemon.stats, id: \.stat.name) { stat in
                         VStack {
                             HStack(spacing: 25) {
@@ -59,8 +65,8 @@ struct PokemonDetailView: View {
                                         .frame(minWidth: 60, alignment: .leading)
                                     Text("\(stat.baseStat)")
                                         .frame(minWidth: 40)
-                                }
-                                ProgressBar(value: Float(stat.baseStat) / Float(stat.maximumStat))
+                                }/*
+                                ProgressBar(value: Float(stat.baseStat) / Float(stat.maximumStat))*/
                             }
                         }
                     }
@@ -68,8 +74,7 @@ struct PokemonDetailView: View {
                 Spacer()
             }
             .padding(25)
-        }
-        .navigationBarTitle(Text(viewModel.pokemon.formattedName), displayMode: .inline)
+        }.navigationBarTitle(Text(viewModel.pokemon.formattedName), displayMode: .inline)
     }
 }
 
