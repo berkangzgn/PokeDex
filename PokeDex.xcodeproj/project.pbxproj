@@ -94,6 +94,7 @@
 		0441BB8C2817127C005849AB /* PokeDex */ = {
 			isa = PBXGroup;
 			children = (
+				0441BBB7281712C8005849AB /* Customization */,
 				0441BB8D2817127C005849AB /* PokeDexApp.swift */,
 				0441BB8F2817127C005849AB /* ContentView.swift */,
 				0441BB912817127F005849AB /* Assets.xcassets */,
@@ -125,6 +126,69 @@
 				0441BBAA2817127F005849AB /* PokeDexUITestsLaunchTests.swift */,
 			);
 			path = PokeDexUITests;
+			sourceTree = "<group>";
+		};
+		0441BBB7281712C8005849AB /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				0441BBBE2817132F005849AB /* View */,
+				0441BBBD2817131D005849AB /* ViewModel */,
+				0441BBBC28171316005849AB /* Model */,
+				0441BBBB28171310005849AB /* Helper */,
+				0441BBBA281712FD005849AB /* Extension */,
+				0441BBB9281712EB005849AB /* Modifier */,
+				0441BBB8281712E3005849AB /* Views */,
+			);
+			path = Customization;
+			sourceTree = "<group>";
+		};
+		0441BBB8281712E3005849AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0441BBB9281712EB005849AB /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		0441BBBA281712FD005849AB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0441BBBB28171310005849AB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0441BBBC28171316005849AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0441BBBD2817131D005849AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0441BBBE2817132F005849AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
