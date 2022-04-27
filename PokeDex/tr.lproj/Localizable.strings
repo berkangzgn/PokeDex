@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  PokeDex
+
+  Created by Berkan Gezgin on 27.04.2022.
+  
+*/
+
+
+"Status" = "Durum";
+"hp" = "Guc";
+"Attack" = "Saldiri";
+"Defence" = "DefSavunmaence";
+"spAtk" = "Ozel Saldiri";
+"spDef" = "Ozel Savunma";
+"Speed" = "Hiz";
+"Height" = "Kilo";
+"Weight" = "Boy";

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0424507228199AA6002EFDF4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0424507128199AA6002EFDF4 /* GoogleService-Info.plist */; };
+		042450772819A13F002EFDF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 042450792819A13F002EFDF4 /* Localizable.strings */; };
 		0441BB8E2817127C005849AB /* PokeDexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441BB8D2817127C005849AB /* PokeDexApp.swift */; };
 		0441BB902817127C005849AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441BB8F2817127C005849AB /* ContentView.swift */; };
 		0441BB922817127F005849AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0441BB912817127F005849AB /* Assets.xcassets */; };
@@ -48,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		02F14C46A67231C805122676 /* Pods-PokeDex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeDex.debug.xcconfig"; path = "Target Support Files/Pods-PokeDex/Pods-PokeDex.debug.xcconfig"; sourceTree = "<group>"; };
+		0424507128199AA6002EFDF4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		042450782819A13F002EFDF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0424507A2819A1DE002EFDF4 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0441BB8A2817127C005849AB /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0441BB8D2817127C005849AB /* PokeDexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexApp.swift; sourceTree = "<group>"; };
 		0441BB8F2817127C005849AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		0441BB812817127C005849AB = {
 			isa = PBXGroup;
 			children = (
+				0424507128199AA6002EFDF4 /* GoogleService-Info.plist */,
 				0441BB8C2817127C005849AB /* PokeDex */,
 				0441BB9D2817127F005849AB /* PokeDexTests */,
 				0441BBA72817127F005849AB /* PokeDexUITests */,
@@ -140,6 +146,7 @@
 				0441BB8D2817127C005849AB /* PokeDexApp.swift */,
 				0441BB912817127F005849AB /* Assets.xcassets */,
 				0441BB932817127F005849AB /* Preview Content */,
+				042450792819A13F002EFDF4 /* Localizable.strings */,
 			);
 			path = PokeDex;
 			sourceTree = "<group>";
@@ -224,8 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				0441BB8F2817127C005849AB /* ContentView.swift */,
-				0441BBD6281715E6005849AB /* ImageView.swift */,
 				0441BBD828171607005849AB /* PokemonDetailView.swift */,
+				0441BBD6281715E6005849AB /* ImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,7 +255,6 @@
 				FBD75C34F2F28C828C16CC82 /* Pods-PokeDexTests.debug.xcconfig */,
 				797D72A535B8B3E781DEF374 /* Pods-PokeDexTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -353,6 +359,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 0441BB812817127C005849AB;
 			productRefGroup = 0441BB8B2817127C005849AB /* Products */;
@@ -372,7 +379,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0441BB952817127F005849AB /* Preview Assets.xcassets in Resources */,
+				042450772819A13F002EFDF4 /* Localizable.strings in Resources */,
 				0441BB922817127F005849AB /* Assets.xcassets in Resources */,
+				0424507228199AA6002EFDF4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,11 +556,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		042450792819A13F002EFDF4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				042450782819A13F002EFDF4 /* en */,
+				0424507A2819A1DE002EFDF4 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		0441BBAC2817127F005849AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -604,6 +626,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -612,6 +635,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -657,6 +681,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
