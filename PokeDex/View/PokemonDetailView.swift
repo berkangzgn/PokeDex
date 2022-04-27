@@ -19,41 +19,43 @@ struct PokemonDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Text(self.viewModel.pokemon.name)
-                    .font(.title)
-                    .textCase(.uppercase)
-                Text("ID: \(self.id, specifier: "%3d")")
-            
+                HStack {
+                    Text(self.viewModel.pokemon.name)
+                        .font(.title)
+                        .textCase(.uppercase)
+                    Text("#\(self.id)")
+                        .font(.system(size: 18))
+                        .foregroundColor(.gray)
+                }
+                
                 // MARK: Sprites
                 HStack {
                     VStack {
                         ImageView(withURL: viewModel.pokemon.sprites.frontDefault)
-                    }
-                    VStack {
                         ImageView(withURL: viewModel.pokemon.sprites.frontShiny)
                     }
                     VStack {
-                        ImageView(withURL: viewModel.pokemon.sprites.backDefault)
-                    }
-                    VStack {
                         ImageView(withURL: viewModel.pokemon.sprites.backShiny)
+                        ImageView(withURL: viewModel.pokemon.sprites.backDefault)
                     }
                 }
                 
                 // MARK: Stats
                 HStack(spacing: 30) {
                     VStack {
-                        Text("Height")
-                            .attributeStyle(color: Color.orange)
+                        //Text("Height")
+                        //    .attributeStyle(color: Color.orange)
                         Text("\(viewModel.pokemon.height) cm")
+                            .attributeStyle(color: Color.orange)
                     }
                     VStack {
-                        Text("Weight")
-                            .attributeStyle(color: Color.blue)
+                        //Text("Weight")
+                        //    .attributeStyle(color: Color.blue)
                         Text("\(viewModel.pokemon.weight) kg")
+                            .attributeStyle(color: Color.blue)
                     }
                 }
-                Section(header: Text("Stats")
+                Section(header: Text("Status")
                     .font(.title2)
                     .fontWeight(.bold)) {
                     ForEach(viewModel.pokemon.stats, id: \.stat.name) { stat in

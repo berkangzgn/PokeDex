@@ -19,7 +19,7 @@ struct ImageView: View {
         Image(uiImage: imageLoader.image ?? UIImage())
             .resizable()
             .scaledToFit()
-            .frame(width: 80, height: 80)
+            .frame(width: 120, height: 120)
     }
 }
 
