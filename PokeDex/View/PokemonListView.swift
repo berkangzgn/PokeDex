@@ -1,14 +1,13 @@
 //
-//  ContentView.swift
+//  PokemonListView.swift
 //  PokeDex
 //
-//  Created by Berkan Gezgin on 25.04.2022.
+//  Created by Berkan Gezgin on 13.05.2022.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject private var viewModel = PokemonViewModel()
+struct PokemonListView: View {
     @State var pokemons: [Pokemon] = []
     
     var body: some View {
@@ -27,7 +26,7 @@ struct ContentView: View {
                     .padding(10)
                 }
             }.onAppear {
-                viewModel.getPokemonList { (pokemons) in
+                PokemonViewModel().getPokemonList { (pokemons) in
                     self.pokemons = pokemons
                 }
             }.navigationTitle("PokeDex")
@@ -35,8 +34,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PokemonListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PokemonListView()
     }
 }

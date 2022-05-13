@@ -6,65 +6,91 @@
 //
 
 import Foundation
+import Foundation
 
-struct Pokemon: Decodable {
-    var name = ""
-    var height = 0
-    var weight = 0
-    var baseExperience = 0
-    var types = [Types]()
-    var stats = [Stats]()
-    var sprites = Sprites()
-    
-    var formattedName: String {
-        if name.count != 0 {
-            return String(Array(name)[0].uppercased() + name.dropFirst())
-        }
-        
-        return ""
-    }
+struct Abilities: Codable {
+    var ability: NameUrl
+    var is_hidden: Bool
+    var slot: Int
 }
 
-struct Stats: Decodable {
-    struct Stat: Decodable {
-        var name = ""
-    }
-    
-    var baseStat = 0
-    var stat: Stat
-    
-    var formattedName: String {
-        if stat.name.count != 0 {
-            let removedHypens = stat.name.replacingOccurrences(of: "-", with: " ").capitalized
-            return removedHypens.replacingOccurrences(of: "Special", with: "Sp. ")
-                  .replacingOccurrences(of: "Attack", with: "Atk")
-                  .replacingOccurrences(of: "Defense", with: "Def")
-        }
-        
-        return ""
-    }
-    
-    var maximumStat: Int {
-        if stat.name == "hp" {
-            return baseStat * 2 + 404
-        } else {
-            return Int(Double(baseStat * 2 + 99) * 1.1)
-        }
-    }
+struct GameIndex: Codable {
+    var game_index: Int
+    var version: NameUrl
 }
 
-struct Types: Decodable {
-    struct `Type`: Decodable {
-        var name = ""
-    }
-    
-    var type: Type
+struct VersionDetail: Codable {
+    var rarity: Int
+    var version: NameUrl
 }
 
-struct Sprites: Decodable {
-    var frontDefault = ""
-    var frontShiny = ""
-    var backDefault = ""
-    var backShiny = ""
-    
+struct HeldItem: Codable {
+    var item: NameUrl
+    var version_details: [VersionDetail]
+}
+
+struct VersionGroupDetail: Codable {
+    var level_lernead_at: Int?
+    var move_learn_method: NameUrl
+    var version_group: NameUrl
+}
+
+struct Moves: Codable {
+    var move: NameUrl
+    var version_group_details: [VersionGroupDetail]
+}
+
+struct NameUrl: Codable {
+    var name: String
+    var url: String
+}
+
+struct Stat: Codable {
+    var base_stat: Int
+    var effort: Int
+    var stat: NameUrl
+}
+
+struct PokemonType: Codable, Identifiable {
+    let id = UUID()
+    var slot: Int
+    var type: NameUrl
+}
+
+struct PokemonDetail: Codable {
+    var abilities: [Abilities]?
+    var base_experience: Int?
+    var forms: [NameUrl]?
+    var game_indices: [GameIndex]?
+    var height: Int?
+    var held_items: [HeldItem]?
+    var id: Int
+    var is_default: Bool?
+    var location_area_encounters: String?
+    var moves: [Moves]?
+    var name: String?
+    var order: Int?
+    var species: NameUrl?
+    var stats: [Stat]?
+    var types: [PokemonType]?
+    var weight: Int?
+}
+
+struct PokemonResponse: Codable {
+    var count: Int
+    var next: String
+    var previous: String?
+    var results: [PokemonResponseResult]
+}
+
+struct PokemonResponseResult: Codable {
+    var name: String
+    var url: String
+}
+
+struct Pokemon: Identifiable {
+    var id: Int
+    var name: String
+    var url: String
+    var imageUrl: String
 }

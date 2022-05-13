@@ -8,11 +8,10 @@
 
 
 "Status" = "Durum";
-"hp" = "Guc";
-"Attack" = "Saldiri";
-"Defence" = "DefSavunmaence";
-"spAtk" = "Ozel Saldiri";
-"spDef" = "Ozel Savunma";
+"Hp" = "Guc";
+"Attack" = "Saldırı";
+"Defense" = "Savunma";
+"Special" = "Özel";
 "Speed" = "Hiz";
 "Height" = "Kilo";
 "Weight" = "Boy";

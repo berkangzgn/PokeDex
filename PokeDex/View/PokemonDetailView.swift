@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    @ObservedObject private var viewModel = PokemonDetailViewModel()
-    private var id: Int
-    
-    init(id: Int) {
-        self.id = id
-        viewModel.fetchPokemonDetail(pokemonId: id)
-    }
+    var id: Int
+    var pokemon: PokemonDetail?
     
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                
+                //MARK: Name
                 HStack {
-                    Text(self.viewModel.pokemon.name)
+                    Text(self.pokemon?.name?.capitalized ?? "Pokemon")
                         .font(.title)
                         .textCase(.uppercase)
                     Text("#\(self.id)")
@@ -28,60 +25,53 @@ struct PokemonDetailView: View {
                         .foregroundColor(.gray)
                 }
                 
-                // MARK: Sprites
-                HStack {
+                // MARK: Image
+                ImageView(id: self.id)
+                
+                // MARK: Height, weight
+                LazyHStack(spacing: 30) {
                     VStack {
-                        ImageView(withURL: viewModel.pokemon.sprites.frontDefault)
-                        ImageView(withURL: viewModel.pokemon.sprites.frontShiny)
+                        Text("Height")
+                            .attributeStyle(color: Color.orange)
+                        HStack {
+                            Text(String(self.pokemon?.height ?? 1))
+                            Text("cm")
+                        }
+                        
                     }
                     VStack {
-                        ImageView(withURL: viewModel.pokemon.sprites.backShiny)
-                        ImageView(withURL: viewModel.pokemon.sprites.backDefault)
+                        Text("Weight")
+                            .attributeStyle(color: Color.blue)
+                        HStack {
+                            Text(String(self.pokemon?.weight ?? 1))
+                            Text("g")
+                        }
                     }
                 }
                 
                 // MARK: Stats
-                HStack(spacing: 30) {
-                    VStack {
-                        //Text("Height")
-                        //    .attributeStyle(color: Color.orange)
-                        Text("\(viewModel.pokemon.height) cm")
-                            .attributeStyle(color: Color.orange)
-                    }
-                    VStack {
-                        //Text("Weight")
-                        //    .attributeStyle(color: Color.blue)
-                        Text("\(viewModel.pokemon.weight) kg")
-                            .attributeStyle(color: Color.blue)
-                    }
-                }
-                Section(header: Text("Status")
+                Text("Status")
                     .font(.title2)
-                    .fontWeight(.bold)) {
-                    ForEach(viewModel.pokemon.stats, id: \.stat.name) { stat in
-                        VStack {
-                            HStack(spacing: 25) {
-                                Group {
-                                    Text(stat.formattedName)
-                                        .fontWeight(.bold)
-                                        .frame(minWidth: 60, alignment: .leading)
-                                    Text("\(stat.baseStat)")
-                                        .frame(minWidth: 40)
-                                }/*
-                                ProgressBar(value: Float(stat.baseStat) / Float(stat.maximumStat))*/
+                    .fontWeight(.bold)
+                LazyHStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                    ForEach((self.pokemon?.stats) ?? [], id: \.stat.name) { stat in
+                            LazyHStack {
+                                Text(stat.stat.name.capitalized)
+                                    .bold()
+                                Text(String(stat.base_stat))
                             }
                         }
                     }
                 }
                 Spacer()
-            }
-            .padding(25)
-        }.navigationBarTitle(Text(viewModel.pokemon.formattedName), displayMode: .inline)
+            }.padding(25)
+        }
     }
 }
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(id: 1)
+        PokemonView(id: 25)
     }
 }
