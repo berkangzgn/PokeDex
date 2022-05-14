@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProgressBar: View {
     var value: Float
-    
+
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .leading) {

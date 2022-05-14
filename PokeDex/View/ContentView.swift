@@ -10,12 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject private var viewModel = PokemonViewModel()
     @State var pokemons: [Pokemon] = []
-    
+
     var body: some View {
         NavigationView {
             List(pokemons) { pokemon in
                 NavigationLink(destination: PokemonView(id: pokemon.id)) {
-                    HStack{
+                    HStack {
                         AsyncImage(url: URL(string: pokemon.imageUrl))
                             .scaledToFit()
                             .frame(maxHeight: 80)

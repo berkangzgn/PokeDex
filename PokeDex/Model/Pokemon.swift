@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Foundation
-
 struct Abilities: Codable {
     var ability: NameUrl
     var is_hidden: Bool

@@ -12,7 +12,7 @@ import Firebase
 struct PokeDexApp: App {
     @UIApplicationDelegateAdaptor(Appdelegate.self) var
         delegate
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -21,10 +21,10 @@ struct PokeDexApp: App {
 }
 
 // MARK: AppDelegate-Firebase Integration
-class Appdelegate : NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+class Appdelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        
+
         return true
     }
 }

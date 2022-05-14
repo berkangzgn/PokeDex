@@ -10,12 +10,12 @@ import SwiftUI
 struct PokemonDetailView: View {
     var id: Int
     var pokemon: PokemonDetail?
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                
-                //MARK: Name
+
+                // MARK: Name
                 HStack {
                     Text(self.pokemon?.name?.capitalized ?? "Pokemon")
                         .font(.title)
@@ -24,10 +24,10 @@ struct PokemonDetailView: View {
                         .font(.system(size: 18))
                         .foregroundColor(.gray)
                 }
-                
+
                 // MARK: Image
                 ImageView(id: self.id)
-                
+
                 // MARK: Height, weight
                 LazyHStack(spacing: 30) {
                     VStack {
@@ -37,7 +37,7 @@ struct PokemonDetailView: View {
                             Text(String(self.pokemon?.height ?? 1))
                             Text("cm")
                         }
-                        
+
                     }
                     VStack {
                         Text("Weight")
@@ -48,7 +48,7 @@ struct PokemonDetailView: View {
                         }
                     }
                 }
-                
+
                 // MARK: Stats
                 Text("Status")
                     .font(.title2)

@@ -10,14 +10,14 @@ import SwiftUI
 struct PokemonView: View {
     @ObservedObject private var viewModel = PokemonViewModel()
     @State var details: PokemonDetail?
-    
+
     var id: Int
-    
+
     var body: some View {
         VStack {
             PokemonDetailView(id: self.id, pokemon: self.details)
         }.onAppear {
-            viewModel.getPokemonDetail(id: self.id){ pokemon in
+            viewModel.getPokemonDetail(id: self.id) { pokemon in
                 self.details = pokemon
             }
         }
