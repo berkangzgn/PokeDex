@@ -31,5 +31,5 @@ Pokedex app written by me in SwiftUI that implements the [PokeAPI](https://pokea
 <br/><br/>
 
 ### Images
-<img src="/Images/list.png" align="left" width="485"/>
-<img src="/Images/detail.png" align="right" width="485"/>
+<img src="/Images/list.png" align="left" width="350"/>
+<img src="/Images/detail.png" align="right" width="350"/>
